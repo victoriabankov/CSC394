@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        {% load static %}
+        <link rel="stylesheet" href="{% static 'css/styles.css'%}">
+        <title>About Us</title>
+    </head>
+    <body>
+        <header>
+            <div class="header-container">
+                <img src="{% static 'images/b.jpg' %}" class="b">
+                <h1 id="app-name">$APPNAME</h1>
+                <nav>
+                    <a href="/about" class="nav-link">About</a>
+                </nav>
+                <span id="user-email">vbankov@depaul.edu</span>
+            </div>
+        </header>
+        <main>
+            <section class="about-section">
+                <h2>About</h2>
+                <p class="description">Placeholder for descriptive text.</p>
+            </section>
+            <section class="team-section">
+                {% for member in team_members %}
+                <div class="profile-card">
+                    <img src="{% if member.image_url == 'Image cap' %}{% static 'images/placeholder.jpg' %}{% else %}{{ member.image_url }}{% endif %}" alt="Profile Image" class="profile-image">
+                    <h3>{{member.name}}</h3>
+                    <p class="role">{{member.role}}</p>
+                    <p class="bio">{{member.bio}}</p>
+                </div>
+                {% endfor %}
+            </section>
+        </main>
+    </body>
+</html>
