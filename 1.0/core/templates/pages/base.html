@@ -1,0 +1,44 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>{% block title %}Team 4 Project{% endblock %}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 text-gray-900">
+
+  <!-- Header -->
+  <header class="bg-white border-b border-gray-200 px-6 py-4 flex flex-col sm:flex-row sm:justify-between items-center">
+    <!-- Left: App Name & Nav -->
+    <div class="flex items-center space-x-4">
+      <a href="/" class="text-lg font-semibold text-blue-700 hover:text-blue-800">$APPNAME</a>
+      <a href="{% url 'about' %}" class="text-sm text-gray-600 hover:text-blue-600">About</a>
+    </div>
+
+    <!-- Right: Login / Logout -->
+    <div class="mt-2 sm:mt-0">
+      {% if user.is_authenticated %}
+        <form action="{% url 'logout' %}" method="post" class="inline">
+          {% csrf_token %}
+          <button type="submit" class="text-sm text-gray-800 font-medium hover:text-red-600 transition">
+            {{ user.email }}
+          </button>
+        </form>
+      {% else %}
+        <a href="{% url 'login' %}" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition">
+          Login
+        </a>
+      {% endif %}
+    </div>
+  </header>
+
+  <!-- Page Content -->
+  <main class="px-4 py-8">
+    {% block content %}
+    {% endblock %}
+  </main>
+
+</body>
+</html>

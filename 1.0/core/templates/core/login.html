@@ -1,0 +1,55 @@
+{% extends "pages/base.html" %}
+{% load static %}
+{% load widget_tweaks %}
+
+{% block title %}Login - Team 4 Project{% endblock %}
+
+{% block content %}
+  <div class="max-w-md mx-auto bg-white p-6 rounded shadow mt-10">
+    <h2 class="text-2xl font-bold mb-6">Login</h2>
+
+    <form method="post" novalidate>
+      {% csrf_token %}
+
+      {% if form.non_field_errors %}
+        <div class="text-red-600 text-sm mb-4">
+          {{ form.non_field_errors.0 }}
+        </div>
+      {% endif %}
+
+      <!-- Email -->
+      <div class="mb-4">
+        <label for="{{ form.email.id_for_label }}" class="block text-sm font-medium text-gray-700">Email</label>
+        {{ form.email|add_class:"mt-1 w-full px-3 py-2 border rounded" }}
+        {% for error in form.email.errors %}
+          <p class="text-red-600 text-sm mt-1">{{ error }}</p>
+        {% endfor %}
+      </div>
+
+      <!-- Password -->
+      <div class="mb-4">
+        <label for="{{ form.password.id_for_label }}" class="block text-sm font-medium text-gray-700">Password</label>
+        {{ form.password|add_class:"mt-1 w-full px-3 py-2 border rounded" }}
+        {% for error in form.password.errors %}
+          <p class="text-red-600 text-sm mt-1">{{ error }}</p>
+        {% endfor %}
+      </div>
+
+      <!-- Forgot Password -->
+      <div class="mb-6 text-right">
+        <a href="{% url 'reset_password' %}" class="text-sm text-blue-600 hover:underline">Forgot your password?</a>
+      </div>
+
+      <!-- Submit -->
+      <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 w-full">
+        Login
+      </button>
+    </form>
+
+    <!-- Register link -->
+    <p class="text-sm text-center mt-4">
+      Don't have an account?
+      <a href="{% url 'register' %}" class="text-blue-600 hover:underline">Register here</a>
+    </p>
+  </div>
+{% endblock %}

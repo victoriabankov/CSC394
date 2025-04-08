@@ -1,0 +1,57 @@
+{% extends "pages/base.html" %}
+{% load static %}
+
+{% block title %}About - Team 4 Project{% endblock %}
+
+{% block content %}
+  <div class="max-w-6xl mx-auto p-6">
+    <h1 class="text-3xl font-bold mb-6">About Our Team</h1>
+    <p class="text-gray-700 mb-10">
+      Meet the dedicated members of Team 4 who brought this project to life.
+    </p>
+
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+
+      <!-- Member 1 -->
+      <div class="bg-white rounded-lg shadow p-4 text-center">
+        <img src="{% static 'images/genImage.png' %}" alt="Member 1" class="w-24 h-24 rounded-full mx-auto mb-4">
+        <h2 class="text-lg font-semibold">Member 1</h2>
+        <p class="text-sm text-gray-600">Project Manager</p>
+        <p class="text-xs text-gray-500 mt-1">Leads the team, coordinates work, and keeps everyone on track.</p>
+      </div>
+
+      <!-- Member 2 -->
+      <div class="bg-white rounded-lg shadow p-4 text-center">
+        <img src="{% static 'images/genImage.png' %}" alt="Member 2" class="w-24 h-24 rounded-full mx-auto mb-4">
+        <h2 class="text-lg font-semibold">Member 2</h2>
+        <p class="text-sm text-gray-600">Backend Developer</p>
+        <p class="text-xs text-gray-500 mt-1">Handles database design, Django models, and business logic.</p>
+      </div>
+
+      <!-- Member 3 -->
+      <div class="bg-white rounded-lg shadow p-4 text-center">
+        <img src="{% static 'images/genImage.png' %}" alt="Member 3" class="w-24 h-24 rounded-full mx-auto mb-4">
+        <h2 class="text-lg font-semibold">Member 3</h2>
+        <p class="text-sm text-gray-600">Frontend Developer</p>
+        <p class="text-xs text-gray-500 mt-1">Builds out responsive pages using Tailwind CSS and Django templates.</p>
+      </div>
+
+      <!-- Member 4 -->
+      <div class="bg-white rounded-lg shadow p-4 text-center">
+        <img src="{% static 'images/genImage.png' %}" alt="Member 4" class="w-24 h-24 rounded-full mx-auto mb-4">
+        <h2 class="text-lg font-semibold">Member 4</h2>
+        <p class="text-sm text-gray-600">Full-Stack Engineer</p>
+        <p class="text-xs text-gray-500 mt-1">Jumps in wherever needed — API work, UI polish, or bug fixes.</p>
+      </div>
+
+      <!-- Member 5 -->
+      <div class="bg-white rounded-lg shadow p-4 text-center">
+        <img src="{% static 'images/genImage.png' %}" alt="Member 5" class="w-24 h-24 rounded-full mx-auto mb-4">
+        <h2 class="text-lg font-semibold">Member 5</h2>
+        <p class="text-sm text-gray-600">DevOps / QA</p>
+        <p class="text-xs text-gray-500 mt-1">Sets up Docker, deployment, testing tools, and CI/CD pipelines.</p>
+      </div>
+
+    </div>
+  </div>
+{% endblock %}
